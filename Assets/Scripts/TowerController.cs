@@ -50,6 +50,8 @@ public class TowerController : MonoBehaviour {
     // Usa a ecuación balística con velocidade inicial `speed` e gravidade fixa.
     // Se non hai solución real (baixo a raíz cadrada negativa), devolve null.
     float? CalculateAngle(bool low) {
+        //Puesto que la torre es más alta que el tanque, se toma como referencia la torreta en lugar de la propia torre
+        //Se Añade un offset de 1 en Y para compensar la diferencia de altura
         Vector3 targetDir = enemy.transform.position - turret.transform.position + new Vector3(0,1,0);
         float y = targetDir.y; // altura relativa
         targetDir.y = 0.0f;
